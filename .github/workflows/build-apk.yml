@@ -47,6 +47,10 @@ jobs:
         working-directory: ${{ env.PROJECT_DIR }}
         run: npm install --legacy-peer-deps --no-audit --fund=false
 
+      - name: Corrigir dependência do Expo Router
+        working-directory: ${{ env.PROJECT_DIR }}
+        run: npm install query-string@^7 --save --legacy-peer-deps --no-audit --fund=false
+
       - name: Gerar projeto Android
         working-directory: ${{ env.PROJECT_DIR }}
         run: npx expo prebuild --platform android --clean --no-install
